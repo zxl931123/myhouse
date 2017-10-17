@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/desktop home.css">
+	<title>参数设置</title>
+</head>
+<body>
+	<div class="head">
+		<a href="../4/desktop over.html">
+			<img src="../image/header/back.png"/>
+		</a>
+		<span>参数设置</span>
+		<a href="../2/desktop help.html">
+			<img src="../image/header/headerbar-doubt.png" class="photo"/ >
+		</a>
+	</div>
+	<div class="contant">
+		<div class="left">玩家配比</div>
+		<div class="right">
+			<div id="player"></div>
+			<button id="btn">点击设置</button>
+		</div>
+	</div>
+	<div class="word">
+		<input type="text" placeholder="水民词组">
+		<input type="text" placeholder="杀手词组">
+	</div>
+	<div class="foot">
+		<p>玩家人数<input type="text" id="people" value="6" onblur="setting()" name="">人</p>
+		<div class="move">
+			<button onclick="reduction();move()">-</button>
+			<input type="range" id="moveback" name="" min="6" max="18" value="6" onchange="reset();setting()">
+			<button onclick="add();move()">+</button>
+		</div>
+	</div>
+	<div class="push">
+		<button id="push_card">去发牌</button>
+	</div>
+	<script type="text/javascript" src="js/desktop home.js"></script>
+</body>

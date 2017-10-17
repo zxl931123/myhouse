@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chameleon</title>
+    <style type="text/css">
+        .wrap {
+            width: 315px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #000000;
+            float: left;
+            margin-left: 5px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="wrap" class="wrap">
+
+</div>
+<input type="button" id="start" value="开始" />
+<input type="button" id="over" value="结束" />
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    window.onload = function() {
+        init();
+        var boxs = document.getElementById('wrap').querySelectorAll('.box');
+        var colors = ['aqua', 'chartreuse', 'crimson', 'coral', 'deepSkyBlue', 'greenYellow', 'lime', 'orangeRed', 'red'];
+
+        function init() {
+            var wrap = document.querySelector('#wrap');
+            var strArr = [];
+            for(var i = 0; i < 9; i++) {
+                strArr.push('<div class="box"></div>');
+            }
+            wrap.innerHTML = strArr.join('');
+        }
+        var startBtn = document.getElementById('start');
+        var overBtn = document.getElementById('over');
+        var timer = null;
+        startBtn.onclick = function() {
+            clearInterval(timer);
+            timer = setInterval(function() {
+                start()
+            }, 1000)
+
+        }
+        overBtn.onclick = function() {
+            over()
+        }
+        var boxNum = 1;
+
+        function start() { //一次几个格子变色
+            //测试
+            var count = 9;
+            var originalArray = []; //原数组
+            //给原数组originalArray赋值
+            for(var i = 0; i < count; i++) {
+                originalArray[i] = i;
+            }
+            originalArray.sort(function() {
+                return 0.5 - Math.random();
+            });
+            //测试
+            for(var i = 0; i < boxs.length; i++) {
+                boxs[i].style.background = '#000000'
+            }
+            var randomNum;
+            for(var i = 0; i < boxNum; i++) {
+                randomNum = originalArray[i];
+                boxs[randomNum].style.background = colors[randomNum];
+                console.log(randomNum);
+            }
+            boxNum++;
+            if(boxNum == 10) {
+                boxNum = 1
+            }
+
+        }
+
+        function over() {
+            clearInterval(timer);
+            for(var i = 0; i < boxs.length; i++) {
+                boxs[i].style.background = '#000000'
+            }
+        }
+
+    }
+</script>
+</body>
+
+</html>

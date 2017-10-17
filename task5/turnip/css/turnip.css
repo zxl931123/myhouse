@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.POSrel {
+    position: relative;
+}
+
+.POSabs {
+    position: absolute;
+}
+
+.POSfixed {
+    position: fixed;
+}
+
+.Ycenter {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.Xcenter {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.Xleft {
+    left: 0 !important;
+}
+
+.Xright {
+    right: 0 !important;
+}
+
+.Ytop {
+    top: 0;
+}
+
+.Ybottom {
+    bottom: 0;
+}
+
+.XYcenter {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.verMiddle{
+    vertical-align: middle;
+}
