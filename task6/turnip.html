@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html  class="ng-scope">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>萝卜多</title>
+        <link rel="stylesheet" href="css/turnip.css">
+		<link href="//cdn.bootcss.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+		<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="//cdn.bootcss.com/angular.js/1.6.6/angular.min.js"></script>
+		<script src="//cdn.bootcss.com/angular-ui-router/1.0.0/angular-ui-router.js"></script>
+		<script src="//cdn.bootcss.com/oclazyload/1.0.9/ocLazyLoad.js"></script>
+		<script src="//cdn.bootcss.com/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
+        <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+        <script src="http://apps.bdimg.com/libs/angular-route/1.3.13/angular-route.js"></script>
+        <script src="JavaScript/turnip.js"></script>
+	</head>
+
+    <body>
+    <div style="background: url(imaga/login-bg.png) no-repeat ;background-size: 100% 100%;height: 100%;width: 100%;min-width: 600px;"
+         class="POSrel">
+        <form class="form-horizontal col-xs-6 col-md-6 col-lg-5 POSabs XYcenter" role="form" novalidate
+              style="background-color: ghostwhite;border-radius: 1vw;padding-top: 70px;padding-bottom: 40px;">
+            <div style="width: 70px;height: 70px;border-radius: 50%;overflow: hidden;top: -35px;" class="POSabs Xcenter">
+                <img src="imaga/login-logo.png" style="height: 100%;width: 100%;vertical-align: middle"
+                     alt="login-logo">
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 col-xs-offset-2 POSrel" style="line-height: 50px;">
+                    <img src="imaga/user.png" class="POSabs Ycenter" style="margin-left: 15px;height: 20px;"
+                         alt="login-user">
+                    <input type="text" class="form-control" style="padding-left: 45px;" id="loginName" placeholder="请输入用户名"
+                           required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 col-xs-offset-2 POSrel" style="line-height: 50px;">
+                    <img src="imaga/password.png" class="POSabs Ycenter" style="margin-left: 15px;height: 20px;"
+                         alt="login-user">
+                    <input type="password" class="form-control" style="padding-left: 45px;" id="loginPwd" placeholder="请输入密码"
+                           required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 col-xs-offset-2  " id="loginError" style="color: red">
+                    <!--不需要内容，登录失败显示，3s内自动消失-->
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 col-xs-offset-2 ">
+                    <button type="button" class="form-control btn btn-default"
+                            style="background-image:linear-gradient(to right,#fd9f2a,rgba(253, 159, 42, 0.74),#fd9f2a);color: #fff"
+                            onclick="loginPage.login()"
+                    >
+                        登录
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    </body>
+
+
+</html>
