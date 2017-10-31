@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="../JavaScript/Page/pager.css">
-<div id="pageWrapper" class="pageWrapper   hidden-xs">
+<div id="pageWrapper" class="pageWrapper">
     <div class="panel-body" style="border: solid 1px #DEDEDE;">
         <div class="row pd-bottom-2">
             <div class="col-md-4">
@@ -64,7 +63,7 @@
             <strong>Article列表</strong>
             <button type="button" class="btn btn-xs btn-success pull-right margin-left-10"
                     ui-sref="field.articleDetail">
-                <a href="#/articleDetail" style="color: #fff">+新增</a>
+                <a ui-sref="home.articleDetail" style="color: #fff">+新增</a>
             </button>
         </div>
         <div class="panel-body tabulation">
@@ -112,8 +111,8 @@
                 <tton>
         </div>
     </div>
+    <div ui-view="child"></div>
 </div>
-<script src="../JavaScript/Page/pager.js"></script>
 <script type="text/javascript">
     lay('#version').html('-v' + laydate.v);
     //执行一个laydate实例

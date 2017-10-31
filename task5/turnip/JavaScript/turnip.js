@@ -38,7 +38,6 @@ var loginPage = {
         }
     }
 }
-
 //http://localhost/turnip.html
 //(function () {
 //  var userName = document.getElementById("loginName")[0],

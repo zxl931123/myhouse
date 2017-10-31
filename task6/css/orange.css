@@ -22,7 +22,6 @@
         width: calc(100% - 250px);
     }
 }
-
 .main {
     width: 1200px;
     height: 190px;
@@ -172,7 +171,14 @@
         margin-bottom: -3000px;
     }
 }
-
+@media (max-width: 768px) {
+    .table .sheet td{
+        white-space: nowrap;
+    }
+    .table .sheet th{
+        white-space: nowrap;
+    }
+}
 .sidebar .list li a {
     color: white;
     font-size: 16px;
@@ -215,9 +221,8 @@ a:hover {
 }
 .table{
     width: 95%;
-    margin: auto;
-    border: solid 1px #DEDEDE;
-    margin-top: 20px;
+    margin: 0 auto;
+    margin-left: -15px;
 }
 .sheet{
     background: #FFFFFF;
@@ -228,4 +233,12 @@ a:hover {
 }
 .sheet td{
     font-size: 14px;
+}
+img{
+    max-width: 100%;
+}
+#wrap-img{
+    max-width: 600px;
+    padding-right: 30px;
+    margin-left: -15px;
 }

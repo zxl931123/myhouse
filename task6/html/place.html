@@ -1,19 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/orange.css">
-    <link rel="stylesheet" href="../css/homePage.css">
-    <title>place</title>
-    <script src="../JavaScript/turnip.js"></script>
-
-</head>
-<body style="background: #fff">
 <div id="pageWrapper" class="pageWrapper">
-    <!-- uiView: undefined --><ui-view class="ng-scope"><!-- ngIf: !vm.searchParams.companyId --><div class="panel panel-default ng-scope" ng-if="!vm.searchParams.companyId">
+    <div class="ng-scope"><div class="panel panel-default ng-scope" ng-if="!vm.searchParams.companyId">
     <form class="form-horizontal ng-pristine ng-valid">
         <div class="panel-body">
             <div class="row pd-bottom-2">
@@ -212,6 +198,5 @@
             </table>
         </div>
     </div>
-
-</ui-view>
+        <div ui-view="child"></div>
 </div>

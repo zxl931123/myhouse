@@ -32,6 +32,12 @@
     border: none;
     margin-bottom: 0;
 }
+@media screen and (max-width: 767px){
+    .table-responsive{
+        border: none;
+    }
+}
+
 
 .navbar-top-links .dropdown .dropdown-character,
 .navbar-top-links .dropdown .dropdown-name,

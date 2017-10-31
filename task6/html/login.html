@@ -1,0 +1,48 @@
+        <link rel="stylesheet" href="../css/login.css">
+        <div  style="background: url(../imaga/login-bg.png) no-repeat ;background-size: 100% 100%;height: 100%;width: 100%;min-width: 600px;"
+             class="POSrel" ng-model="loginMod">
+            <form class="form-horizontal col-xs-6 col-md-6 col-lg-5 POSabs XYcenter" role="form" novalidate
+                  style="background-color: ghostwhite;border-radius: 1vw;padding-top: 70px;padding-bottom: 40px;" name="loginForm">
+                <div style="width: 70px;height: 70px;border-radius: 50%;overflow: hidden;top: -35px;" class="POSabs Xcenter">
+                    <img src="../imaga/login-logo.png" style="height: 100%;width: 100%;vertical-align: middle"
+                         alt="login-logo">
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-8 col-xs-offset-2 POSrel" style="line-height: 50px;">
+                        <img src="../imaga/user.png" class="POSabs Ycenter" style="margin-left: 15px;height: 20px;"
+                             alt="login-user">
+                        <input type="text" class="form-control" style="padding-left: 45px;" id="loginName" name="name" placeholder="请输入用户名"
+                               required ng-model="name" ng-minlength=5 ng-maxlength=10 required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-8 col-xs-offset-2 POSrel" style="line-height: 50px;">
+                        <img src="../imaga/password.png" class="POSabs Ycenter" style="margin-left: 15px;height: 20px;"
+                             alt="login-user">
+                        <input type="password" class="form-control" style="padding-left: 45px;" id="loginPwd" placeholder="请输入密码"
+                               required ng-model="pwd"  ng-minlength=6 ng-maxlength=12 required name="pwd" />
+                    </div>
+                </div>
+                <div class="error form-group">
+                    <div class="col-xs-8 col-xs-offset-2  " id="loginError" style="color: red">
+                        <span ng-show="loginForm.name.$error.minlength">用户名长度至少为5.</span>
+                        <span ng-show="loginForm.name.$error.maxlength">用户名长度至多为10.</span>
+                        <span ng-show="loginForm.name.$error.pattern">用户名只允许输入数字和英文.</span>
+                        <span ng-show="loginForm.pwd.$error.minlength">密码长度至少为6.</span>
+                        <span ng-show="loginForm.pwd.$error.maxlength">密码长度至多为12.</span>
+                        <span ng-show="loginForm.pwd.$error.pattern">密码只允许输入数字和英文.</span>
+                        <!--不需要内容，登录失败显示，3s内自动消失-->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-8 col-xs-offset-2 ">
+                        <button type="button" class="form-control btn btn-default"
+                                style="background-image:linear-gradient(to right,#fd9f2a,rgba(253, 159, 42, 0.74),#fd9f2a);color: #fff"
+                                ng-click="login()"
+                        >
+                            登录
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>

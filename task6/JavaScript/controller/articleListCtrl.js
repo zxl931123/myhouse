@@ -1,6 +1,6 @@
 app.controller('articleListCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.article = {
-        ajaxData: []
+        ajaxData: [],
     };
     $scope.list = function () {
         var ask = $http.get('/carrots-admin-ajax/a/article/search');
