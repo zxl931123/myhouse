@@ -25,6 +25,7 @@
                 </div>
                 <div class="error form-group">
                     <div class="col-xs-8 col-xs-offset-2  " id="loginError" style="color: red">
+                        {{errorInfo}}
                         <span ng-show="loginForm.name.$error.minlength">用户名长度至少为5.</span>
                         <span ng-show="loginForm.name.$error.maxlength">用户名长度至多为10.</span>
                         <span ng-show="loginForm.name.$error.pattern">用户名只允许输入数字和英文.</span>

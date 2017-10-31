@@ -6,7 +6,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/login',
             views: {
                 "parent": {
-                    templateUrl: '../html/login.html',
+                    templateUrl: './html/login.html',
                     controller: 'loginCtrl',
                 }
             }
@@ -16,7 +16,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/home',
             views: {
                 "parent": {
-                    templateUrl: '../html/homePage.html',
+                    templateUrl: './html/homePage.html',
                     controller: 'homeCtrl',
                 }
             }
@@ -25,7 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/welcome',
             views: {
                 "child": {
-                    templateUrl: '../html/welcome.html',
+                    templateUrl: './html/welcome.html',
                     controller: 'welcomeCtrl',
                 }
             }
@@ -35,7 +35,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/article',
             views: {
                 "child": {
-                    templateUrl: '../html/Article.html',
+                    templateUrl: './html/Article.html',
                     controller: 'articleListCtrl',
                 }
             }
@@ -45,7 +45,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/articleDetail',
             views: {
                 "child": {
-                    templateUrl: '../html/articleDetail.html',
+                    templateUrl: './html/articleDetail.html',
                     // controller: 'articleCtrl',
                 }
             }
@@ -55,7 +55,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             url: '/place',
             views: {
                 "child": {
-                    templateUrl: '../html/place.html',
+                    templateUrl: './html/place.html',
                     // controller: 'articleCtrl',
                 }
             }

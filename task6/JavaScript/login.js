@@ -1,10 +1,10 @@
-app.controller('loginCtrl', ['$scope','$state', '$http', function ($scope,$state,$http) {
+app.controller('loginCtrl', ['$scope', '$state', '$http', function ($scope, $state, $http) {
+    $scope.errorInfo = '';
     $scope.login = function () {
         var data = {
             name: $scope.name,
             pwd: $scope.pwd
         }
-        var loginError = $('#loginError');
         var promise = $http({
             method: 'post',
             url: '/carrots-admin-ajax/a/login',
@@ -14,12 +14,17 @@ app.controller('loginCtrl', ['$scope','$state', '$http', function ($scope,$state
             },
             data: data
         })
+        function codefans(){
+            var error=document.getElementsByClassName("error");
+            error.style.display="none";
+        }
+        setTimeout("codefans()",3000);//3秒
         promise.then(function (res) {
-            if(res.data.code==0){
-                loginError.html('登录成功')
+            if (res.data.code == 0) {
+                $scope.errorInfo = '登录成功';
                 $state.go('home.welcome');
-        }else{
-                loginError.html(res.data.message + '!')
+            } else {
+                $scope.errorInfo = res.data.message + '!';
             }
             console.log(res);
         }, function (res) {
