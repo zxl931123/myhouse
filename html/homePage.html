@@ -1,0 +1,93 @@
+<div>
+    <div>
+        <div class="ng-scope">
+            <div id="wrapper" class="wrapper ng-scope">
+                <nav class="navbar navbar-inverse" role="navigation" style="margin-bottom: 0px;border-radius: 0;">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target="#dashboard-navbar-collapse">
+                            <span class="sr-only">切换导航</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#" style="color: #fff">萝卜多后台</a>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-right" id="dashboard-navbar-collapse"
+                         style="height: 50px;line-height: 50px">
+                        <div class="hidden-xs">
+                            <span style="color: #fff;margin-right: 20px;cursor: pointer"
+                                  class="ng-binding"> admin</span>
+                            <a href="#/second" style="color: #fff">
+                                <span class="glyphicon glyphicon-off" ng-click="" style="margin-right: 20px"></span></a>
+                        </div>
+
+                        <ul class=" nav navbar-nav hidden-sm hidden-md hidden-lg text-center list">
+                            <li>
+                                <a ui-sref="" href="#!/dashboard/articleList">公司列表</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.professionList" href="#!/dashboard/professionList ">职位列表</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.articleList" href="#!/dashboard/articleList">Article列表</a>
+                            </li>
+                            <li class="active">
+                                <a ui-sref="" ng-click="" href="#!/dashboard/articleList"><span
+                                        class="glyphicon glyphicon-off"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="sidebar  hidden-xs ">
+                    <!--collapse控制默认显示还是隐藏-->
+                    <ul class="nav in side treeMenu list">
+                        <li class="perMenu">
+                            <a href="javascript:;" class="menuTitle">
+                                <i class="fa  fa-pencil"></i>信息管理<span class="fa arrow "></span>
+                            </a>
+                            <div class="content">
+                                <ul class="list">
+                                    <li><i class="fa fa-inbox"></i><span><a ui-sref="home.welcome">公司列表</a></span></li>
+                                    <li><i class="fa fa-share"></i><span><a ui-sref="home.place">职位列表</a></span></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- end ngRepeat: side in sideList -->
+                        <li class="perMenu">
+                            <a class="menuTitle">
+                                <i class="fa  fa-pencil"></i>Article管理<span class="fa arrow "></span>
+                            </a>
+                            <div class="content">
+                                <ul class="list">
+                                    <li><i class="fa fa-cog"></i>
+                                        <a ui-sref="home.article">Article列表</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div ui-view="child"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //     左侧效果
+    ~function () {
+        var treeMenu = $('.sidebar .treeMenu');
+        var perMenu = treeMenu.find('.perMenu');
+        var menuTitle = perMenu.find('.menuTitle');
+        var hiddenPanel = perMenu.find('.content');
+        menuTitle.click(function () {
+            //所有的
+            hiddenPanel.hide(300);
+            //自己的
+            var nowMenu = $(this).parents('.perMenu');
+            nowMenu.find('.content').show(300);
+        })
+
+    }()
+
+</script>

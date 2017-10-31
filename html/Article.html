@@ -1,0 +1,135 @@
+<div id="pageWrapper" class="pageWrapper">
+    <div class="panel-body" style="border: solid 1px #DEDEDE;">
+        <div class="row pd-bottom-2">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label col-md-4 titel">发布时间</label>
+                    <div class="col-md-8">
+                        <input type="text" id="test1" class="form-control ng-pristine ng-untouched ng-valid" size="20"
+                               autoclose="true" ng-model="vm.searchParams.startAt">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label col-md-4 text-center ">—</label>
+                    <div class="col-md-8">
+                        <input type="text" id="test2" class="form-control ng-pristine ng-untouched ng-valid" size="20"
+                               autoclose="true" ng-model="vm.searchParams.startAt">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="control-label col-md-4 word-spacing-25 titel">类 型</label>
+                    <div class="col-md-8">
+                        <select class="form-control ng-pristine ng-untouched ng-valid" ng-model="vm.searchParams.type">
+                            <option value="">全部</option>
+                            <option value="0">首页Banner</option>
+                            <option value="1">找职位Banner</option>
+                            <option value="2">找精英Banner</option>
+                            <option value="3">行业大图</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pd-bottom-2">
+            <div class="col-md-4">
+                <div class="form-group" style="margin-top: 20px">
+                    <label class="control-label col-md-4 word-spacing-25 titel">状 态</label>
+                    <div class="col-md-8">
+                        <select class="form-control ng-pristine ng-untouched ng-valid"
+                                ng-model="vm.searchParams.status">
+                            <option value="">全部</option>
+                            <option value="2">上线</option>
+                            <option value="1">草稿</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pd-bottom-2">
+            <div class="col-md-4 pull-right text-right">
+                <div params="vm.searchParams" class="ng-isolate-scope">
+                    <button type="button" class="btn btn-danger" ng-click="clean()">清空</button>
+                    <button type="button" class="btn btn-success" ng-click="search()">搜索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="contentBottom">
+        <div class="panel-heading" style="background: #F9F9F9">
+            <strong>Article列表</strong>
+            <button type="button" class="btn btn-xs btn-success pull-right margin-left-10"
+                    ui-sref="field.articleDetail">
+                <a ui-sref="home.articleDetail" style="color: #fff">+新增</a>
+            </button>
+        </div>
+        <div class="panel-body tabulation">
+            <table class="table table-striped add-table-border" style="width: 100%">
+                <thead>
+                <tr class="sheet">
+                    <th>ID</th>
+                    <th>名称</th>
+                    <th>类型</th>
+                    <th>发布时间</th>
+                    <th>修改时间</th>
+                    <th>发布者</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="sheet" ng-repeat="self in article.ajaxData">
+                    <td>{{$index+1}}</td>
+                    <td>{{self.title}}</td>
+                    <td>{{self.type | type }}</td>
+                    <td>{{self.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                    <td>{{self.updateAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                    <td>{{self.author}}</td>
+                    <td>{{self.status | status }}</td>
+                    <td>
+                        <a type="button" class="btn btn-sm ng-binding"
+                           ng-click=" vm.changeArticleStatus(item.id,item.status)">上线 </a>
+                        <a type="button" class="btn btn-sm" ui-sref="field.articleDetail({id:item.id})"
+                           href="#/articleDetail?id=3383">编辑</a>
+                        <a type="button" class="btn btn-sm" ng-click=" vm.delArticle(item.id,$index)">删除</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="shows">
+        <ul class="pagination" id="page1"></ul>
+        <div class="pageJump">
+            <span>跳转到</span>
+            <input type="text"/>
+            <span>页</span>
+            <button type="button" class="button">确定
+                <tton>
+        </div>
+    </div>
+    <div ui-view="child"></div>
+</div>
+<script type="text/javascript">
+    lay('#version').html('-v' + laydate.v);
+    //执行一个laydate实例
+    laydate.render({
+        elem: '#test1' //指定元素
+    });
+    laydate.render({
+        elem: '#test2' //指定元素
+    });
+
+    Page({
+        num: 15,					//页码数
+        startnum: 3,				//指定页码
+        elem: $('#page1'),		//指定的元素
+        callback: function (n) {	//回调函数
+            console.log(n);
+        }
+    });
+
+</script>
