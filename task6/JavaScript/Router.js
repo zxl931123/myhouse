@@ -40,13 +40,21 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                 }
             }
         })
+        //article编辑
+        .state('home.articleAetail', {
+            url: '/articleAetail',
+            views: {
+                "child": {
+                    templateUrl: './html/articleAetail.html',
+                }
+            }
+        })
         //新增页面
         .state('home.articleDetail', {
             url: '/articleDetail',
             views: {
                 "child": {
                     templateUrl: './html/articleDetail.html',
-                    // controller: 'articleCtrl',
                 }
             }
         })
@@ -56,10 +64,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             views: {
                 "child": {
                     templateUrl: './html/place.html',
-                    // controller: 'articleCtrl',
                 }
             }
         })
+
 }])
 app.controller('', ['$scope', function ($scope) {
     $scope.name = 'loginCtrl';

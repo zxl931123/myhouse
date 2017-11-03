@@ -1,12 +1,17 @@
-<div id="pageWrapper" class="pageWrapper">
+<div id="pageWrapper" class="pageWrapper container-fluid col-sm-12">
     <div class="panel-body" style="border: solid 1px #DEDEDE;">
         <div class="row pd-bottom-2">
             <div class="col-md-4">
                 <div class="form-group">
-                    <label class="control-label col-md-4 titel">发布时间</label>
+                    <label class="control-label col-md-4 titel">修改时间</label>
                     <div class="col-md-8">
-                        <input type="text" id="test1" class="form-control ng-pristine ng-untouched ng-valid" size="20"
-                               autoclose="true" ng-model="vm.searchParams.startAt">
+                        <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd"
+                               ng-init="startOpen=false"
+                               datepicker-options="myPicker.config"
+                               ng-model="article.searchParams.startAt"
+                               is-open="startOpen"
+                               close-text="关闭"
+                               clear-text="清空" current-text="今天" ng-focus="startOpen=true"/>
                     </div>
                 </div>
             </div>
@@ -14,16 +19,30 @@
                 <div class="form-group">
                     <label class="control-label col-md-4 text-center ">—</label>
                     <div class="col-md-8">
-                        <input type="text" id="test2" class="form-control ng-pristine ng-untouched ng-valid" size="20"
-                               autoclose="true" ng-model="vm.searchParams.startAt">
+                        <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd"
+                               ng-init="endOpen=false"
+                               datepicker-options="myPicker.config"
+                               ng-model="article.searchParams.endAt"
+                               is-open="endOpen"
+                               close-text="关闭"
+                               clear-text="清空" current-text="今天" ng-focus="endOpen=true"/>
                     </div>
                 </div>
             </div>
+            <script>
+                $(function () {
+                    $(".datepicker").datepicker({
+                        inline: true,
+                        showOtherMonths: true
+                    });
+                });
+            </script>
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="control-label col-md-4 word-spacing-25 titel">类 型</label>
                     <div class="col-md-8">
-                        <select class="form-control ng-pristine ng-untouched ng-valid" ng-model="vm.searchParams.type">
+                        <select class="form-control ng-pristine ng-untouched ng-valid"
+                                ng-model="article.searchParams.type">
                             <option value="">全部</option>
                             <option value="0">首页Banner</option>
                             <option value="1">找职位Banner</option>
@@ -40,7 +59,7 @@
                     <label class="control-label col-md-4 word-spacing-25 titel">状 态</label>
                     <div class="col-md-8">
                         <select class="form-control ng-pristine ng-untouched ng-valid"
-                                ng-model="vm.searchParams.status">
+                                ng-model="article.searchParams.status">
                             <option value="">全部</option>
                             <option value="2">上线</option>
                             <option value="1">草稿</option>
@@ -66,8 +85,8 @@
                 <a ui-sref="home.articleDetail" style="color: #fff">+新增</a>
             </button>
         </div>
-        <div class="panel-body tabulation">
-            <table class="table table-striped add-table-border" style="width: 100%">
+        <div class="panel-body tabulation table-responsive">
+            <table class="table table-striped add-table-border">
                 <thead>
                 <tr class="sheet">
                     <th>ID</th>
@@ -91,45 +110,27 @@
                     <td>{{self.status | status }}</td>
                     <td>
                         <a type="button" class="btn btn-sm ng-binding"
-                           ng-click=" vm.changeArticleStatus(item.id,item.status)">上线 </a>
-                        <a type="button" class="btn btn-sm" ui-sref="field.articleDetail({id:item.id})"
-                           href="#/articleDetail?id=3383">编辑</a>
-                        <a type="button" class="btn btn-sm" ng-click=" vm.delArticle(item.id,$index)">删除</a>
+                           ng-click="changeArticleStatus">上线 </a>
+                        <a type="button" class="btn btn-sm" ui-sref="home.articleDetail">编辑</a>
+                        <a type="button" class="btn btn-sm" ng-click="delArticle">删除</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="shows">
-        <ul class="pagination" id="page1"></ul>
-        <div class="pageJump">
-            <span>跳转到</span>
-            <input type="text"/>
-            <span>页</span>
-            <button type="button" class="button">确定
-                <tton>
-        </div>
+    <div class="pagination">
+        <uib-pagination total-items="pagination.total" ng-model="article.searchParams.page" max-size="5"
+                        first-text="第一页"
+                        previous-text="上一页" next-text="下一页" last-text="最后页" boundary-links="true"
+                        ng-change="pagination.changePage()"
+                        boundary-link-numbers="true">
+        </uib-pagination>
+
     </div>
     <div ui-view="child"></div>
 </div>
 <script type="text/javascript">
-    lay('#version').html('-v' + laydate.v);
-    //执行一个laydate实例
-    laydate.render({
-        elem: '#test1' //指定元素
-    });
-    laydate.render({
-        elem: '#test2' //指定元素
-    });
 
-    Page({
-        num: 15,					//页码数
-        startnum: 3,				//指定页码
-        elem: $('#page1'),		//指定的元素
-        callback: function (n) {	//回调函数
-            console.log(n);
-        }
-    });
 
 </script>

@@ -1,7 +1,7 @@
 <body style="background: #f5f5f5">
 <div id="pageWrapper" class="pageWrapper ng-scope  ">
     <div class="panel-heading">
-        <strong ng-if="!vm.params.id" class="ng-scope">新增Article</strong>
+        <strong ng-if="!params.id" class="ng-scope">新增Article</strong>
     </div>
     <div class="panel-body">
         <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required" name="myform">
@@ -9,14 +9,14 @@
                 <label class="col-md-2 control-label">标题名称</label>
                 <div class="col-md-8">
                     <input class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" type="text"
-                           ng-model="vm.params.title" required="">
+                           ng-model="params.title" required="">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label word-spacing-25">类 型</label>
                 <div class="col-md-2">
                     <select class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required"
-                            ng-model="vm.params.type" required="">
+                            ng-model="params.type" required="">
                         <option value="">请选择</option>
                         <option value="0">首页Banner</option>
                         <option value="1">找职位Banner</option>
@@ -33,7 +33,7 @@
                 <label class="col-md-2 control-label word-spacing-25">说 明</label>
                 <div class="col-md-8">
                     <input class="form-control ng-pristine ng-untouched ng-valid" type="text"
-                           ng-model="vm.params.content">
+                           ng-model="params.content">
                 </div>
             </div>
             <!-- ngIf: vm.params.type!=='4' -->
@@ -41,7 +41,7 @@
                 <label class="col-md-2 control-label">跳转链接</label>
                 <div class="col-md-8">
                     <input class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" type="text"
-                           ng-model="vm.params.url" required="">
+                           ng-model="params.url" required="">
                 </div>
             </div><!-- end ngIf: vm.params.type!=='4' -->
             <div class="row form-group">
@@ -49,7 +49,7 @@
                 <div class="col-md-10 padding-0">
                     <div class="col-md-12 ">
                         <label class="btn btn-primary" for="file2" style="margin-left: -15px">选择文件</label>
-                        <input id="file2" style="display: none" type="file" nv-file-select="" uploader="vm.uploader1">
+                        <input id="file2" style="display: none" type="file" nv-file-select="" uploader="uploader1">
                     </div>
                     <div class="col-md-12" id="wrap-img">
                         <img alt="配图预览" class="img-responsive">
@@ -70,9 +70,9 @@
                                 <tr ng-repeat="item in vm.uploader1.queue track by $index" class="ng-scope"
                                     ng-if="$first">
                                     <td></td>
-                                    <td ng-show="vm.uploader1.isHTML5" nowrap="" class="ng-binding">
+                                    <td ng-show="uploader1.isHTML5" nowrap="" class="ng-binding">
                                     </td>
-                                    <td ng-show="vm.uploader1.isHTML5">
+                                    <td ng-show="uploader1.isHTML5">
                                         <div class="progress" style="margin-bottom: 0;">
                                             <div class="progress-bar" role="progressbar"
                                                  ng-style="{ 'width': item.progress + '%' }" style="width: 100%;"></div>
@@ -86,7 +86,7 @@
                                             <span class="glyphicon glyphicon-upload" id="upLoadBtn"></span> 上传
                                         </button>
                                         <button type="button" class="btn btn-danger btn-xs"
-                                                ng-click="item.remove(); vm.clearImg()">
+                                                ng-click="item.remove(); clearImg()">
                                             <span class="glyphicon glyphicon-trash"></span> 删除
                                         </button>
                                     </td>
@@ -101,16 +101,16 @@
             <div class="form-group">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <button type="button" class="btn btn-success" ng-click="vm.pubArticle() "
+                    <button type="button" class="btn btn-success" ng-click="pubArticle() "
                             ng-disabled="!myform.$valid||vm.params.img==undefined" disabled="disabled">立即上线
                     </button>
-                    <button type="button" class="btn btn-success" ng-click="vm.saveArticle()"
+                    <button type="button" class="btn btn-success" ng-click="saveArticle()"
                             ng-disabled="!myform.$valid||vm.params.img==undefined" disabled="disabled">存为草稿
                     </button>
                     <!--<span class="text-red" ng-show="!vm.vaidShow">请补全信息</span>-->
                     <button type="button" class="btn btn-default pull-right" ui-sref="field.articleList"
                             href="#/articleList//">
-                        <a href="#/second">取消</a></button>
+                        <a ui-sref="home.article">取消</a></button>
                 </div>
             </div>
         </form>

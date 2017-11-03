@@ -207,9 +207,7 @@ a:hover {
     background: red;
 }
 .tabulation{
-    border: solid 1px #DEDEDE;
-    border-top: none;
-
+    padding: 0px 20px 20px 40px;
 }
 .titel{
     padding-top: 7px;
@@ -220,13 +218,13 @@ a:hover {
     padding-bottom: 20px;
 }
 .table{
-    width: 95%;
     margin: 0 auto;
     margin-left: -15px;
 }
 .sheet{
     background: #FFFFFF;
     text-align: center;
+
 }
 .sheet th{
     text-align: center;
