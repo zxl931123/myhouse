@@ -40,15 +40,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                 }
             }
         })
-        //article编辑
-        .state('home.articleAetail', {
-            url: '/articleAetail',
-            views: {
-                "child": {
-                    templateUrl: './html/articleAetail.html',
-                }
-            }
-        })
         //新增页面
         .state('home.articleDetail', {
             url: '/articleDetail',

@@ -117,3 +117,6 @@
 .panel-body{
     background: #fff;
 }
+.pagination{
+    display: inline;
+}

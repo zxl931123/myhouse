@@ -81,7 +81,7 @@
         <div class="panel-heading" style="background: #F9F9F9">
             <strong>Article列表</strong>
             <button type="button" class="btn btn-xs btn-success pull-right margin-left-10"
-                    ui-sref="field.articleDetail">
+                    ui-sref="home.articleDetail">
                 <a ui-sref="home.articleDetail" style="color: #fff">+新增</a>
             </button>
         </div>
@@ -119,18 +119,36 @@
             </table>
         </div>
     </div>
-    <div class="pagination">
-        <uib-pagination total-items="pagination.total" ng-model="article.searchParams.page" max-size="5"
-                        first-text="第一页"
-                        previous-text="上一页" next-text="下一页" last-text="最后页" boundary-links="true"
-                        ng-change="pagination.changePage()"
-                        boundary-link-numbers="true">
-        </uib-pagination>
-
+    <div class="pagination container-fluid">
+        <div class="row">
+        <div class="its col-xs-2" style="left: 20px;">每页
+                    <input type="text" ng-model="article.searchParams.size"
+                           style="width: 60px; text-align: center;height: 30px;border: none;border: 1px solid #ededed"
+                           value=""
+                           class="ng-pristine ng-untouched ng-valid ng-empty">条
+                </div>
+        <div class="its col-xs-7">
+            <uib-pagination total-items="pagination.total" ng-model="pagination.page" max-size="5"
+                            items-per-page="pagination.perPageItems"
+                            first-text="第一页"
+                            previous-text="上一页" next-text="下一页" last-text="最后页" boundary-links="true"
+                            ng-change="pagination.changePage()"
+                            boundary-link-numbers="true">
+            </uib-pagination>
+        </div>
+        <div  class="its col-xs-3">跳转到
+                    <input type="text" ng-model="article.searchParams.page"
+                           style="width:60px;height:30px; text-align: center;border: none; border: 1px solid #ededed;"
+                           value=""
+                           class="ng-pristine ng-untouched ng-valid ng-empty">页
+            <button ng-click="list()" style="border: none;width: 60px;height: 30px;">确定</button>
+                </div>
+        </div>
     </div>
     <div ui-view="child"></div>
 </div>
+<ul>
+    <li ng-repeat="person in roommates">{{ person.name }}</li> </ul>
 <script type="text/javascript">
-
 
 </script>

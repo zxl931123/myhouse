@@ -67,7 +67,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr ng-repeat="item in vm.uploader1.queue track by $index" class="ng-scope"
+                                <tr class="ng-scope"
                                     ng-if="$first">
                                     <td></td>
                                     <td ng-show="uploader1.isHTML5" nowrap="" class="ng-binding">
@@ -80,9 +80,7 @@
                                     </td>
 
                                     <td nowrap="">
-                                        <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()"
-                                                ng-disabled="item.isReady || item.isUploading || item.isSuccess"
-                                                disabled="disabled">
+                                        <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()">
                                             <span class="glyphicon glyphicon-upload" id="upLoadBtn"></span> 上传
                                         </button>
                                         <button type="button" class="btn btn-danger btn-xs"
