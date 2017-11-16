@@ -1,5 +1,4 @@
 app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('', 'login');
     $stateProvider
     //登录
         .state('login', {
@@ -40,28 +39,25 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                 }
             }
         })
-        //新增页面
+        //新增页面,编辑页面
         .state('home.articleDetail', {
-            url: '/articleDetail',
+            // url传参
+            url: '/articleDetail?id',
             views: {
                 "child": {
                     templateUrl: './html/articleDetail.html',
+                    controller: 'articleEditCtrl'
                 }
-            }
+            },
         })
-        //职位列表
         .state('home.place', {
             url: '/place',
             views: {
                 "child": {
                     templateUrl: './html/place.html',
                 }
-            }
+            },
         })
-
-}])
-app.controller('', ['$scope', function ($scope) {
-    $scope.name = 'loginCtrl';
 }])
 app.controller('homeCtrl', ['$scope', function ($scope) {
     $scope.name = 'mainCtrl';
@@ -69,10 +65,6 @@ app.controller('homeCtrl', ['$scope', function ($scope) {
 app.controller('welcomeCtrl', ['$scope', function ($scope) {
     $scope.name = 'welcomeCtrl';
 }])
-app.controller('articleCtrl', ['$scope', function ($scope) {
-    $scope.name = 'articleCtrl';
-}])
-
 
 
 

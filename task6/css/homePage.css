@@ -27,7 +27,18 @@
     padding: 15px;
     min-height: 50px;
 }
-
+.navbar-inverse .navbar-toggle{
+    border: orange;
+}
+.navbar-inverse .navbar-toggle:hover{
+    background: #ff6b25;
+}
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
+    border-color: #ff5e11;
+}
+..glyphicon-off:hover{
+    color: #FFFFFF;
+}
 .navbar {
     border: none;
     margin-bottom: 0;
@@ -38,7 +49,9 @@
     }
 }
 
-
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+    padding: 10px;
+}
 .navbar-top-links .dropdown .dropdown-character,
 .navbar-top-links .dropdown .dropdown-name,
 .navbar-top-links .dropdown .dropdown-close {

@@ -79,13 +79,14 @@
     </div>
     <div class="contentBottom">
         <div class="panel-heading" style="background: #F9F9F9">
-            <strong>Article列表</strong>
+            <strong>Article列表
+            </strong>
             <button type="button" class="btn btn-xs btn-success pull-right margin-left-10"
                     ui-sref="home.articleDetail">
                 <a ui-sref="home.articleDetail" style="color: #fff">+新增</a>
             </button>
         </div>
-        <div class="panel-body tabulation table-responsive">
+        <div class="panel-body tabulation table-responsive table-responsive">
             <table class="table table-striped add-table-border">
                 <thead>
                 <tr class="sheet">
@@ -109,10 +110,19 @@
                     <td>{{self.author}}</td>
                     <td>{{self.status | status }}</td>
                     <td>
-                        <a type="button" class="btn btn-sm ng-binding"
-                           ng-click="changeArticleStatus">上线 </a>
-                        <a type="button" class="btn btn-sm" ui-sref="home.articleDetail">编辑</a>
-                        <a type="button" class="btn btn-sm" ng-click="delArticle">删除</a>
+                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                class="btn btn-sm  btn-primary "
+                                ng-click="changeItemStatus(self.id,self.status)" ng-clock>
+                            <!--1草稿，2上线-->
+                            {{self.status==1?'上线':'下线'}}
+                        </button>
+
+                        <a ui-sref=home.articleDetail({id:self.id}) style="font-size: 12px;">编辑</a>
+                        <button style="border: none;background: none;color: #337Ab7;outline:none; " type="button"
+                                class="btn btn-sm  btn-primary "
+                                ng-click="deleteItem(self.id)" ng-clock>
+                            删除
+                        </button>
                     </td>
                 </tr>
                 </tbody>
@@ -121,34 +131,35 @@
     </div>
     <div class="pagination container-fluid">
         <div class="row">
-        <div class="its col-xs-2" style="left: 20px;">每页
-                    <input type="text" ng-model="article.searchParams.size"
-                           style="width: 60px; text-align: center;height: 30px;border: none;border: 1px solid #ededed"
-                           value=""
-                           class="ng-pristine ng-untouched ng-valid ng-empty">条
-                </div>
-        <div class="its col-xs-7">
-            <uib-pagination total-items="pagination.total" ng-model="pagination.page" max-size="5"
-                            items-per-page="pagination.perPageItems"
-                            first-text="第一页"
-                            previous-text="上一页" next-text="下一页" last-text="最后页" boundary-links="true"
-                            ng-change="pagination.changePage()"
-                            boundary-link-numbers="true">
-            </uib-pagination>
-        </div>
-        <div  class="its col-xs-3">跳转到
-                    <input type="text" ng-model="article.searchParams.page"
-                           style="width:60px;height:30px; text-align: center;border: none; border: 1px solid #ededed;"
-                           value=""
-                           class="ng-pristine ng-untouched ng-valid ng-empty">页
-            <button ng-click="list()" style="border: none;width: 60px;height: 30px;">确定</button>
-                </div>
+            <div class="its col-xs-2" style="left: 20px;">每页
+                <input type="text" ng-model="article.searchParams.size"
+                       style="width: 60px; text-align: center;height: 30px;border: none;border: 1px solid #ededed"
+                       value=""
+                       class="ng-pristine ng-untouched ng-valid ng-empty">条
+            </div>
+            <div class="its col-xs-7">
+                <uib-pagination total-items="pagination.total" ng-model="pagination.page" max-size="5"
+                                items-per-page="pagination.perPageItems"
+                                first-text="第一页"
+                                previous-text="上一页" next-text="下一页" last-text="最后页" boundary-links="true"
+                                ng-change="pagination.changePage()"
+                                boundary-link-numbers="true">
+                </uib-pagination>
+            </div>
+            <div class="its col-xs-3">跳转到
+                <input type="text" ng-model="article.searchParams.page"
+                       style="width:60px;height:30px; text-align: center;border: none; border: 1px solid #ededed;"
+                       value=""
+                       class="ng-pristine ng-untouched ng-valid ng-empty">页
+                <button ng-click="list()" style="border: none;width: 60px;height: 30px;">确定</button>
+            </div>
         </div>
     </div>
     <div ui-view="child"></div>
 </div>
 <ul>
-    <li ng-repeat="person in roommates">{{ person.name }}</li> </ul>
+    <li ng-repeat="person in roommates">{{ person.name }}</li>
+</ul>
 <script type="text/javascript">
 
 </script>

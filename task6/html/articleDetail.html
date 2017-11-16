@@ -1,111 +1,83 @@
 <body style="background: #f5f5f5">
 <div id="pageWrapper" class="pageWrapper ng-scope  ">
     <div class="panel-heading">
-        <strong ng-if="!params.id" class="ng-scope">新增Article</strong>
+        <strong ng-if="!params.id" class="ng-scope">
+            新增Article</strong>
     </div>
     <div class="panel-body">
-        <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required" name="myform">
+        <form class="form-horizontal ng-pristine ng-invalid ng-invalid-required" name="myform" novalidate>
             <div class="form-group">
                 <label class="col-md-2 control-label">标题名称</label>
                 <div class="col-md-8">
                     <input class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" type="text"
-                           ng-model="params.title" required="">
+                           required="" ng-model="params.title">
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label word-spacing-25">类 型</label>
                 <div class="col-md-2">
                     <select class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required"
-                            ng-model="params.type" required="">
-                        <option value="">请选择</option>
-                        <option value="0">首页Banner</option>
-                        <option value="1">找职位Banner</option>
-                        <option value="2">找精英Banner</option>
-                        <option value="3">行业大图</option>
+                            required="" ng-model="params.type"
+                            ng-options="option.value as option.showText for option in
+                            [{value:'',showText:'请选择'},{value:0,showText:'首页banner'},{value:1,showText:'找职位banner'},
+                            {value:2,showText:'找精英banner'},{value:3,showText:'行业大图'}
+                            ]">
                     </select>
-
                 </div>
                 <div class="col-md-2">
-                    <!-- ngIf: vm.params.type==3 -->
+                    <select class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required"
+                            required="" ng-model="params.industry" ng-if="params.type==3"
+
+                            ng-options="option.value as option.showText for option in
+                            [{value:'',showText:'请选择'},{value:0,showText:'移动互联网'},{value:1,showText:'电子商务'},
+                            {value:2,showText:'企业服务'},{value:3,showText:'O2O'},
+                            {value:4,showText:'教育'},{value:5,showText:'金融'},
+                            {value:6,showText:'游戏'}]">
+                    </select>
+                </div>
+                <div class="col-md-2">
+
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-md-2 control-label word-spacing-25">说 明</label>
                 <div class="col-md-8">
-                    <input class="form-control ng-pristine ng-untouched ng-valid" type="text"
-                           ng-model="params.content">
+                    <input class="form-control ng-pristine ng-untouched ng-valid" type="text" ng-model="params.content"
+                    >
                 </div>
             </div>
-            <!-- ngIf: vm.params.type!=='4' -->
-            <div class="form-group ng-scope" ng-if="vm.params.type!=='4'">
+
+            <div class="form-group" ng-if="params.type!=='4'">
                 <label class="col-md-2 control-label">跳转链接</label>
                 <div class="col-md-8">
                     <input class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required" type="text"
-                           ng-model="params.url" required="">
+                           ng-model="params.url"
+                           required="">
                 </div>
-            </div><!-- end ngIf: vm.params.type!=='4' -->
-            <div class="row form-group">
-                <label class="col-md-2 control-label word-spacing-25">配 图</label>
-                <div class="col-md-10 padding-0">
-                    <div class="col-md-12 ">
-                        <label class="btn btn-primary" for="file2" style="margin-left: -15px">选择文件</label>
-                        <input id="file2" style="display: none" type="file" nv-file-select="" uploader="uploader1">
-                    </div>
-                    <div class="col-md-12" id="wrap-img">
-                        <img alt="配图预览" class="img-responsive">
-                    </div>
-                    <div class="col-md-12">
-                        <div class="table-responsive col-md-8 padding-0">
-                            <table class="table">
-                                <thead style="margin-left: -15px">
-                                <tr>
-                                    <th>图片名</th>
-                                    <th>文件大小</th>
-                                    <th>进度</th>
-                                    <th>操作</th>
-                                    <th>操作</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr class="ng-scope"
-                                    ng-if="$first">
-                                    <td></td>
-                                    <td ng-show="uploader1.isHTML5" nowrap="" class="ng-binding">
-                                    </td>
-                                    <td ng-show="uploader1.isHTML5">
-                                        <div class="progress" style="margin-bottom: 0;">
-                                            <div class="progress-bar" role="progressbar"
-                                                 ng-style="{ 'width': item.progress + '%' }" style="width: 100%;"></div>
-                                        </div>
-                                    </td>
-
-                                    <td nowrap="">
-                                        <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()">
-                                            <span class="glyphicon glyphicon-upload" id="upLoadBtn"></span> 上传
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-xs"
-                                                ng-click="item.remove(); clearImg()">
-                                            <span class="glyphicon glyphicon-trash"></span> 删除
-                                        </button>
-                                    </td>
-                                </tr><!-- end ngIf: $first -->
-                                <!-- end ngRepeat: item in vm.uploader1.queue track by $index -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-md-2 control-label">图片配图</label>
+                <div class="col-md-8" style="margin-left: -15px">
+                    <img-upload ajax-ads="'/carrots-admin-ajax/a/u/img/task'" img-src="params.img"></img-upload>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-md-2"></div>
                 <div class="col-md-8">
-                    <button type="button" class="btn btn-success" ng-click="pubArticle() "
-                            ng-disabled="!myform.$valid||vm.params.img==undefined" disabled="disabled">立即上线
+                    <button type="button" class="btn btn-success"
+                            ng-disabled="!params.img||!params.url||!params.title||
+                            !params.type&&params.type!==0
+                            ||params.type==3&&params.industry===''"
+                            ng-click="addArticle(2)"
+                    >立即上线
                     </button>
-                    <button type="button" class="btn btn-success" ng-click="saveArticle()"
-                            ng-disabled="!myform.$valid||vm.params.img==undefined" disabled="disabled">存为草稿
+                    <button type="button" class="btn btn-success"
+                            ng-disabled="!params.img||!params.url||!params.title||
+                            !params.type&&params.type!==0
+                            ||params.type==3&&params.industry===''"
+                            ng-click="addArticle(1)"
+                    >保存草稿
                     </button>
-                    <!--<span class="text-red" ng-show="!vm.vaidShow">请补全信息</span>-->
                     <button type="button" class="btn btn-default pull-right" ui-sref="field.articleList"
                             href="#/articleList//">
                         <a ui-sref="home.article">取消</a></button>
@@ -115,74 +87,10 @@
     </div>
 </div>
 <script>
-    var fileUpload = {
-        dom: {
-            chooseFile: document.getElementById('file2'),
-            showFile: document.getElementById('wrap-img'),
-            uploadBtn: document.getElementById('upLoadBtn')
-        },
-        files: undefined
-    }
-    fileUpload.dom.chooseFile.onchange = function () {
-        fileUpload.files = this.files[0];
-        readFile(fileUpload.files);
-    }
-    fileUpload.dom.uploadBtn.onclick = function () {
-        var data = new FormData();
-        if (!fileUpload.files) {
-            return;
-        }
-        ;
-        data.append('file', fileUpload.files);
-        var promise = ajax({
-            method: 'post',
-            url: '/carrots-admin-ajax/a/u/img/task',
-            data: data
-        });
-        promise.then(function (res) {
-            if (res.code === 0 && res.message == 'success') {
-                console.log(res.data);
-            } else {
-                console.log(res.message);
-            }
-        }, function (e) {
-            alert(e);
-        })
-    }
-    //FileReader本地预览文件
-    var readFile = function (file) {
-        var instance = new FileReader();
-        instance.readAsDataURL(file);
-        instance.onload = function () {
-            var resUrl = this.result;
-            fileUpload.dom.showFile.appendChild(createElement('img', {'src': resUrl}));
-        }
-    }
-    //创建dom元素
-    var createElement = function (tagName, property) {
-        //property为obj
-        var Node = document.createElement(tagName);
-        for (var i in property) {
-            Node.setAttribute(i, property[i]);
-        }
-        return Node;
-    };
-    //封装ajax
-    var ajax = function (config) {
-        var xhr = new XMLHttpRequest();
-        xhr.open(config.method, config.url, config.async || true);
-        return new Promise(function (resolve, reject) {
-            xhr.onreadystatechange = function () {
-                if (xhr.status === 200 && xhr.readyState === 4) {
-                    resolve(JSON.parse(xhr.responseText));
-                }
-            }
-            xhr.onerror = function (e) {
-                reject(e);
-            }
-            xhr.send(config.data || '');
-        })
-    }
 
 </script>
 </body>
+
+
+
+

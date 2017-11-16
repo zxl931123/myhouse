@@ -206,9 +206,6 @@ a:hover {
     height: 100px;
     background: red;
 }
-.tabulation{
-    padding: 0px 20px 20px 40px;
-}
 .titel{
     padding-top: 7px;
 }
@@ -217,14 +214,9 @@ a:hover {
     position: relative;
     padding-bottom: 20px;
 }
-.table{
-    margin: 0 auto;
-    margin-left: -15px;
-}
 .sheet{
     background: #FFFFFF;
     text-align: center;
-
 }
 .sheet th{
     text-align: center;
@@ -232,13 +224,46 @@ a:hover {
 .sheet td{
     font-size: 14px;
 }
-img{
-    max-width: 100%;
+.imgUploadDirective {
 }
-#wrap-img{
-    max-width: 600px;
-    padding-right: 30px;
-    margin-left: -15px;
+
+.imgUploadDirective img {
+    width: 300px;
+}
+
+.imgUploadDirective .upBtn {
+    position: relative;
+}
+
+.imgUploadDirective .upBtn input {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    opacity: 0;
+}
+/*文件信息*/
+.fileInfoPanel {
+}
+
+.fileInfoPanel th {
+    text-align: center;
+}
+
+.fileInfoPanel td {
+    text-align: center;
+}
+
+.fileInfoPanel td:first-child {
+    width: 40%;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.fileInfoPanel progress {
+    width: 50px;
 }
 
 /*分页*/
