@@ -77,6 +77,7 @@ app.controller('articleEditCtrl', ['$scope', '$stateParams', '$rootScope', '$sta
         } else {
             return;
         }
+
         isConfrim.then(function (res) {
             if (config.method === 'put') {
                 //模态框确认

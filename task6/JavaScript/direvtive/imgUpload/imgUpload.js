@@ -133,4 +133,5 @@ angular.module('imgUploadDirective', [])
 
             }
         }
+
     }])

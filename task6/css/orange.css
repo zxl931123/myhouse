@@ -4,6 +4,7 @@
 .pageWrapper {
     background-color: #f5f5f5;
     margin: 0;
+    margin-top: -10px;
     padding-top: -20px;
 }
 
@@ -188,6 +189,7 @@
 
 a:hover {
     color: orange;
+
 }
 
 .modal-title {

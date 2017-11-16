@@ -36,7 +36,7 @@
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form{
     border-color: #ff5e11;
 }
-..glyphicon-off:hover{
+.glyphicon-off:hover{
     color: #FFFFFF;
 }
 .navbar {
@@ -72,7 +72,7 @@
     background: #feae45;
 }
 .navbar-inverse{
-    background: orange!important;
+    background: #ff7b17;
 }
 .btn-submit {
     color: #fff;
